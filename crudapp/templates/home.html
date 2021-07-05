@@ -1,11 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<a href="{% url 'postcreate' %}">새 글 쓰기</a>
+{% load static %}
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'deco.css' %}">
+</head>
+<body>
+    
 {% for crudapp in crudapps.all %}
-    <h1>제목: {{crudapp.title}}</h1>
-    <p>날짜: {{crudapp.pub_date}}</p>
-    <p>미리보기: {{crudapp.summary}}<a href="{% url 'detail' crudapp.id %}">...more</a></p>
+    <li class="item">
+        <h2>{{crudapp.title}}</h2>
+        <p class="preview">{{crudapp.summary}}<a href="{% url 'detail' crudapp.id %}">...more</a></p>
+        <p class="date">DATE {{crudapp.pub_date}}</p>
+    </li>
+    </body>
+    </html>
 {% endfor %}
+<a href="{% url 'postcreate' %}" class="newpost">새 글 쓰기</a>
 
 {% endblock %}

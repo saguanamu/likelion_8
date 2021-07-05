@@ -1,13 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h1>자세한 본문 내용</h1>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'deco.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+<h2>{{crudapp.title}}</h2>
 <br>
-<p>제목 : {{crudapp.title}}</p>
-<p>작성 날짜 : {{crudapp.pub_date}}</p>
-<p>자세한 본문 : {{crudapp.body}}</p>
-<a href="{% url 'postupdate' crudapp.id %}">수정하기</a>
-<br>
-<a href="{% url 'postdelete' crudapp.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">삭제하기</a>
-
+<p class="preview">{{crudapp.body}}</p>
+<br/>
+<p class="date">DATE {{crudapp.pub_date}}</p>
+<br/><br/>
+<div class="bt">
+    <a href="{% url 'postupdate' crudapp.id %}">수정하기</a>
+    <a href="{% url 'postdelete' crudapp.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">삭제하기</a>
+</div>
+</body>             
+</html>
 {% endblock %}

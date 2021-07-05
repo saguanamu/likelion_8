@@ -1,9 +1,10 @@
 {% load bootstrap4 %}
+{% load static %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
-
-<nav class="navbar navbar-light" style="background-color: #e6e6fa;">
-    <a class="navbar-brand" href="{% url 'home' %}">Likelion</a>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
+<nav class="navbar navbar-light" style="background-color: #A4C3FF;">
+    <a id="brand" class="navbar-brand" href="{% url 'home' %}">Likelion</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,7 +35,6 @@
         </ul>
     </div>
 </nav>
-             
 {% block content %}
 {% endblock %}
              
